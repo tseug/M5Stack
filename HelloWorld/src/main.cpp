@@ -5,9 +5,17 @@ void setup() {
   M5.begin();
 
   // LCD 显示
-  M5.Lcd.print("Hello World");
+  M5.Lcd.setCursor(100, 120);
+
+  M5.Lcd.setTextColor(RED);
+
+  M5.Lcd.setTextSize(2);
+
+  M5.Lcd.printf("Hello world!");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+    // 更新显示内容
+    M5.update();
 }
