@@ -16,7 +16,7 @@ byte packetBuffer[NTP_PACKET_SIZE]; // Buffer to hold incoming and outgoing pack
 // Don't hardwire the IP address or we won't get the benefits of the time server pool.
 const char *ntpServerName = "time.windows.com";//"1.cn.pool.ntp.org";
 IPAddress timeServerIP(120,25,108,11);  //ONENET -- NTP
-//IPAddress timeServerIP(183,230,40,42);  //ONENET -- NTP
+
 
 
 // Send an NTP request to the time server at the given address

@@ -1,8 +1,18 @@
 #include <M5Stack.h>
 #include <WiFi.h>
+#include <Time.h>
+#include <Timezone.h>
+
+#include "ntp.h"
 
 String wifi_ssid = "BOCOITS";
 String wifi_password = "boco85308686";
+
+// 北京时间时区
+#define STD_TIMEZONE_OFFSET +8    
+
+TimeChangeRule mySTD = {"", First,  Sun, Jan, 0, STD_TIMEZONE_OFFSET * 60};
+Timezone myTZ(mySTD, mySTD);
 
 
 void setup() {
