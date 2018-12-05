@@ -1,27 +1,27 @@
+#define USE_INTERNAL_HZK
+
 #include <M5Stack.h>
 #include <WiFi.h>
-#include <Time.h>
-#include <Timezone.h>
 
 #include "ntp.h"
+#include "str.h"
 
 String wifi_ssid = "BOCOITS";
 String wifi_password = "boco85308686";
-
-// 北京时间时区
-#define STD_TIMEZONE_OFFSET +8    
-
-TimeChangeRule mySTD = {"", First,  Sun, Jan, 0, STD_TIMEZONE_OFFSET * 60};
-Timezone myTZ(mySTD, mySTD);
-
 
 void setup() {
   int count = 0;
 
   // 初始化M5Stack
   M5.begin();
+
+  //M5.Lcd.loadHzk16("/Fonts/HZK16","/Fonts/ASC16");
+  
   M5.Lcd.setTextColor(RED);
   M5.Lcd.setTextSize(2);
+
+  M5.Lcd.print(GbkStr);
+  M5.Lcd.qrcode("https://microsoft.com");
 
   // 初始化WIFI
   WiFi.begin(wifi_ssid.c_str(), wifi_password.c_str());
